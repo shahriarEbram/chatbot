@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import json
-from shared import constants, utils
+from ..shared import constants, utils
 
 
 # Get available models from the API
