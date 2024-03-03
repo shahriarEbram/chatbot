@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import json
-from ..shared import constants, utils
+import utils, constants
 
 
 # Get available models from the API
@@ -37,7 +37,7 @@ def exchange_code_for_api_key(code: str):
             json={"code": code},
         )
         response.raise_for_status()
-        st.query_params()
+        st.experimental_get_query_params()
         api_key = json.loads(response.text)["key"]
         st.session_state["api_key"] = api_key
         st.experimental_rerun()

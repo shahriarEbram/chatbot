@@ -1,9 +1,9 @@
 import openai
 import streamlit as st
 from streamlit_chat import message
-from components.Sidebar import sidebar
+from Sidebar import sidebar
 import json
-from shared import constants
+import constants
 
 api_key, selected_model = sidebar(constants.OPENROUTER_DEFAULT_CHAT_MODEL)
 
@@ -14,7 +14,8 @@ st.header("Balintech Chatbot", divider='grey')
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
-        {"role": "assistant", "content": "چطور میتونم کمکتون کنم?"}
+        {"role": "assistant",
+         "content": "چطور میتونم کمکتون کنم?"}
     ]
 
 with st.form("chat_input", clear_on_submit=True):
